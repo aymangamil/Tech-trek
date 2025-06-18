@@ -44,6 +44,17 @@ def local_css():
         --menu-text: #e6e6e6;    /* New menu text color */
         --menu-hover: #333333;   /* New menu hover color */
     }}
+    /* إجبار الوضع الليلي */
+    :root {{
+        --primary-background-color: #0E1117;
+        --secondary-background-color: #262730;
+        --text-color: #FAFAFA;
+    }}
+    
+    /* تعطيل تبديل الوضع الليلي/النهاري */
+    .st-emotion-cache-1wbqy5l {{
+        display: none !important;
+    }}
 
     /* Logo Animation */
     .logo-container {{
