@@ -6,7 +6,6 @@ from streamlit_option_menu import option_menu
 import base64
 from datetime import datetime
 
-# ✅ Streamlit configuration
 st.set_page_config(
     page_title="Tech Trek AI Academy",
     page_icon="🤖",
@@ -14,21 +13,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# تحويل الصور المحلية لـ base64
 def load_local_image(image_path):
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode()
     return encoded_string
 
-# تحميل الصور
 try:
-    logo_image = load_local_image(r"Screenshot 2025-06-16 042217.png")
-    data_science_image = load_local_image(r"Screenshot 2025-06-16 041008.png")
+    logo_image = load_local_image("Screenshot 2025-06-16 042217.png")
+    data_science_image = load_local_image("Screenshot 2025-06-16 041008.png")
 except:
     logo_image = ""
     data_science_image = ""
 
-# ✅ Tech Trek Red/Black Theme CSS
 def local_css():
     st.markdown(f"""
     <style>
@@ -39,11 +35,14 @@ def local_css():
         --primary-light: #FF9999;
         --secondary: #000000;     /* Black */
         --secondary-light: #333333;
-        --dark: black;         /* Dark background */
+        --dark: black;            /* Dark background */
         --light: #F0F0F0;        /* Light text */
         --text: #FFFFFF;         /* Main text */
         --text-light: #CCCCCC;   /* Secondary text */
         --accent: #FF2E2E;       /* Highlight color */
+        --menu-bg: #1a1a1a;      /* New menu background color */
+        --menu-text: #e6e6e6;    /* New menu text color */
+        --menu-hover: #333333;   /* New menu hover color */
     }}
 
     /* Logo Animation */
@@ -101,78 +100,8 @@ def local_css():
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff2e2e' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff2e2e' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
         opacity: 0.3;
-    }}
-
-    .certificate-header {{
-        color: var(--primary);
-        font-family: 'Orbitron', sans-serif;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 0 0 10px rgba(255, 46, 46, 0.7);
-    }}
-
-    .certificate-subheader {{
-        color: var(--primary-light);
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.3rem;
-        margin-bottom: 2rem;
-        letter-spacing: 2px;
-    }}
-
-    .certificate-name {{
-        font-family: 'Orbitron', sans-serif;
-        font-size: 2.5rem;
-        color: white;
-        margin: 2rem 0;
-        padding: 1.5rem;
-        background: rgba(255, 46, 46, 0.15);
-        border-left: 5px solid var(--primary);
-        border-right: 5px solid var(--primary);
-        text-transform: uppercase;
-    }}
-
-    .certificate-course {{
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.8rem;
-        color: var(--primary-light);
-        margin-bottom: 1.5rem;
-        font-weight: 500;
-    }}
-
-    .certificate-date {{
-        font-family: 'Roboto', sans-serif;
-        color: var(--text-light);
-        margin-bottom: 3rem;
-        font-size: 1.2rem;
-    }}
-
-    .certificate-footer {{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 4rem;
-    }}
-
-    .certificate-signature {{
-        text-align: center;
-        flex: 1;
-    }}
-
-    .certificate-seal {{
-        width: 150px;
-        height: 150px;
-        margin: 0 auto;
-        background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.5rem;
-        border: 3px solid var(--primary);
-        box-shadow: 0 0 20px rgba(255, 46, 46, 0.5);
     }}
 
     /* باقي أنماط CSS */
@@ -217,51 +146,17 @@ def local_css():
         box-shadow: 0 15px 30px rgba(255, 46, 46, 0.3);
     }}
 
-    .instructor-card {{
-        background: rgba(20, 20, 20, 0.8);
-        border-radius: 12px;
-        border: 1px solid var(--primary);
-        padding: 1.5rem;
-        transition: all 0.3s ease;
-        text-align: center;
-        margin-bottom: 2rem;
+    /* New Menu Styles */
+    .st-emotion-cache-1avcm0n {{
+        background-color: var(--menu-bg) !important;
+        border-bottom: 1px solid var(--primary) !important;
     }}
-
-    .instructor-card:hover {{
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(255, 46, 46, 0.3);
+    
+    .st-emotion-cache-1avcm0n .st-emotion-cache-1avcm0n {{
+        border-bottom: none !important;
     }}
-
-    @keyframes laser {{
-        0% {{ opacity: 0.3; }}
-        50% {{ opacity: 1; }}
-        100% {{ opacity: 0.3; }}
-    }}
-
-    .laser-beam {{
-        position: absolute;
-        height: 2px;
-        background: var(--primary);
-        box-shadow: 0 0 10px var(--primary);
-        animation: laser 2s infinite;
-    }}
-
-    .hover-zoom {{
-        transition: transform 0.5s;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 2px solid var(--primary);
-    }}
-
-    .hover-zoom:hover {{
-        transform: scale(1.03);
-    }}
-
-    @media (max-width: 768px) {{
-        .tech-grid {{
-            grid-template-columns: 1fr;
-        }}
-    }}
+    
+    /* باقي أنماط CSS... */
     </style>
     """, unsafe_allow_html=True)
 
@@ -277,52 +172,53 @@ tech_images = {
     "instructor3": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2"
 }
 
-# تطبيق CSS المخصص
 local_css()
 
-# إضافة خطوط جوجل
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 """, unsafe_allow_html=True)
 
-# عرض اللوجو
 st.markdown(f"""
     <div class="logo-container">
         <img src="data:image/png;base64,{logo_image}" alt="Tech Trek Logo">
     </div>
 """, unsafe_allow_html=True)
 
-# القائمة الأفقية
 selected = option_menu(
     menu_title=None,
     options=["🏠 Home", "📊 Data Analysis", "🧠 ML", "🕸️ Deep Learning"],
-    icons=["house", "bar-chart", "cpu", "diagram-3", "people", "award"],
+    icons=["house", "bar-chart", "cpu", "diagram-3"],
     menu_icon="cast",
     default_index=0,
     orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "var(--dark)"},
-        "icon": {"color": "var(--primary)", "font-size": "18px"}, 
+        "container": {
+            "padding": "0!important",
+            "background-color": "var(--menu-bg)",
+            "border-bottom": "1px solid var(--primary)"
+        },
+        "icon": {"color": "var(--primary)", "font-size": "18px"},
         "nav-link": {
             "font-family": "'Orbitron', sans-serif",
             "font-size": "16px",
             "text-align": "center",
             "margin": "0 auto",
             "padding": "12px 20px",
-            "color": "var(--text)",
-            "border-radius": "4px",
+            "color": "var(--menu-text)",
+            "border-radius": "0px",
             "transition": "all 0.3s ease",
+            "border-bottom": "2px solid transparent"
         },
         "nav-link-selected": {
-            "background-color": "var(--primary)",
-            "color": "white",
+            "background-color": "transparent",
+            "color": "var(--primary)",
             "font-weight": "bold",
-            "box-shadow": "0 0 15px rgba(255, 46, 46, 0.5)"
+            "border-bottom": "2px solid var(--primary)"
         },
         "nav-link:hover": {
-            "background-color": "rgba(255, 46, 46, 0.2)",
+            "background-color": "var(--menu-hover)",
             "color": "var(--primary-light)",
-            "transform": "translateY(-2px)"
+            "border-bottom": "2px solid var(--primary-light)"
         }
     }
 )
@@ -351,7 +247,7 @@ with st.container():
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
                 <div class="tech-card">
                     <h4>📊 Data Analysis</h4>
-                    <p>Master data analysis and visualization </p>
+                    <p>Master data analysis and visualization</p>
                 </div>
                 <div class="tech-card">
                     <h4>🧠 Deep Learning</h4>
@@ -359,6 +255,7 @@ with st.container():
                 </div>
             </div>
             """, unsafe_allow_html=True)
+            
             st.markdown("""
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
                 <div class="tech-card">
@@ -366,9 +263,10 @@ with st.container():
                     <p>Learn And Deploy Real Applications</p>
                 </div>
                 <div class="tech-card">
-                <div class="icon"></div>
-                <h4>Real Projects</h4>
-                <p>Build practical AI solutions that solve real-world problems and make an impact.</p>
+                    <div class="icon"></div>
+                    <h4>Real Projects</h4>
+                    <p>Build practical AI solutions that solve real-world problems and make an impact.</p>
+                </div>
             </div>
             """, unsafe_allow_html=True)
         
@@ -421,7 +319,6 @@ with st.container():
         
         with tab2:
             col1, col2 = st.columns([2, 3])
-
             with col1:
                 st.markdown("""
                 <div class="tech-card">
@@ -435,7 +332,7 @@ with st.container():
                     </ul>
                 </div>
                 """, unsafe_allow_html=True)
-
+                
             with col2:
                 st.markdown(f"""
                 <div style="position: relative;" class="hover-zoom">
@@ -443,8 +340,7 @@ with st.container():
                     <div class="laser-beam" style="width: 60%; left: 20%; top: 30%;"></div>
                 </div>
                 """, unsafe_allow_html=True)
-
-                    
+        
         with tab3:
             st.markdown("""
             <div class="tech-card">
@@ -496,7 +392,6 @@ with st.container():
         
         with tab2:
             col1, col2 = st.columns([2, 3])
-
             with col1:
                 st.markdown("""
                 <div class="tech-card">
@@ -512,7 +407,7 @@ with st.container():
                     </ul>
                 </div>
                 """, unsafe_allow_html=True)
-
+                
             with col2:
                 st.markdown(f"""
                 <div style="position: relative;" class="hover-zoom">
@@ -520,7 +415,6 @@ with st.container():
                     <div class="laser-beam" style="width: 60%; left: 20%; top: 30%;"></div>
                 </div>
                 """, unsafe_allow_html=True)
-
         
         with tab3:
             st.markdown("""
@@ -536,15 +430,15 @@ with st.container():
             </div>
             """, unsafe_allow_html=True)
 
-    else:
+    elif selected == "🕸️ Deep Learning":
         st.markdown("""
-    <div style="text-align: center;">
-        <h1 class="header-tech">DEEP LEARNING TRACK</h1>
-        <p style="font-size: 1.1rem; color: var(--primary-light);">
-            Master deep models, language understanding, and real-world deployment
-        </p>
-    </div>
-""", unsafe_allow_html=True)
+        <div style="text-align: center;">
+            <h1 class="header-tech">DEEP LEARNING TRACK</h1>
+            <p style="font-size: 1.1rem; color: var(--primary-light);">
+                Master deep models, language understanding, and real-world deployment
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
         tab1, tab2, tab3 = st.tabs(["🧠 Core Concepts", "🚀 Architectures & Transformers", "🔧 Applications"])
 
@@ -620,9 +514,6 @@ with st.container():
             </div>
             """, unsafe_allow_html=True)
 
-                
-
-# الفوتر
 st.markdown("""
 <div style="text-align: center; margin-top: 3rem; border-top: 1px solid var(--primary); padding-top: 1rem;">
     <p style="color: var(--primary-light); font-size: 0.9rem;">TECH TREK AI ACADEMY © 2025 | ALL SYSTEMS OPERATIONAL</p>
