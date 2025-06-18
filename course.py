@@ -396,7 +396,8 @@ with st.container():
                         <li>• SQL</li>
                         <li>• Excel</li>
                         <li>• Power Bi</li> 
-                        <li>• Dash</li>      
+                        <li>• Dash</li>  
+                        <li>• Intro To Machine Learning</li>      
                     </ul>
                     <div class="laser-beam" style="width: 100%; left: 0; bottom: 10px;"></div>
                 </div>
