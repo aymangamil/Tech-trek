@@ -22,8 +22,8 @@ def load_local_image(image_path):
 
 # تحميل الصور
 try:
-    logo_image = load_local_image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-06-16 042217.png")
-    data_science_image = load_local_image(r"C:\Users\Ayman\Pictures\Screenshots\Screenshot 2025-06-16 041008.png")
+    logo_image = load_local_image(r"Screenshot 2025-06-16 042217.png")
+    data_science_image = load_local_image(r"Screenshot 2025-06-16 041008.png")
 except:
     logo_image = ""
     data_science_image = ""
